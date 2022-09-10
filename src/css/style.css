@@ -12,16 +12,12 @@
     box-sizing: border-box;
     text-decoration: none;
 }
-/* html {
+html {
     scroll-behavior: smooth;
-} */
+}
 body {
-    background-image: linear-gradient(0deg, transparent 24px, rgb(233, 233, 233) 25px), linear-gradient(90deg, transparent 24px, rgb(233, 233, 233) 25px);
-    background-size: 25px 25px;
-
     overflow-x:hidden;
 }
-/* custom scroll bar */
 ::-webkit-scrollbar {
     display: none;
 }
@@ -33,7 +29,7 @@ section {
     min-width: 900;
 }
 .container {
-    padding: 0 5vw;
+    padding: 0 10vw;
     margin: auto;
 }
 
@@ -61,7 +57,7 @@ section {
 }
 .navbar .logo a img {
     padding: 15px;
-    width: 150px;
+    width: 145px;
 }
 .navbar .menu li {
     font-family: 'Luckiest Guy', cursive;
@@ -96,11 +92,22 @@ section {
 
 
 /* home styling */
-.home{
+.home {
     height: 80vh;
     width: 100%;
 }
-.home .cursor{
+.home .home-background{
+    position: absolute;
+    height: 120vh;
+    width: 100vw;
+    top: 0;
+    left: -10px;
+    z-index: -1;
+
+    background-image: linear-gradient(0deg, transparent 48px, rgb(233, 233, 233) 50px), linear-gradient(90deg, transparent 48px, rgb(233, 233, 233) 50px);
+    background-size: 50px 50px;
+}
+.home .cursor {
     width: 50px;
     height: 50px;
     position: absolute;
@@ -116,7 +123,7 @@ section {
     left: calc(100% - 60px);
     top: 0;
     width: 25%;
-    height: 100%;
+    height: 80%;
 }
 .home .social-container li {
     list-style: none;
@@ -171,14 +178,12 @@ section {
 /* about styling */
 .about {
     position: relative;
-    height: 210vh;
+    height: 180vh;
     padding-top: 170px;
     z-index: 1;
 }
 .about .resume-btn {
-    position: absolute;
-    left: calc(100% - 220px);
-    top: 20px;
+    margin-top: 100px;
 }
 .about .resume-btn a svg {
     margin: 0px 15px 0px 10px;
@@ -189,8 +194,8 @@ section {
     flex-direction: row;
     align-items: center;
     padding: 0px 5px 0px 5px;
-    height: 58px;
-    width: 200px;
+    height: 70px;
+    width: 185px;
 
     font-family: 'Luckiest Guy', cursive;
     font-size: 24px;
@@ -220,6 +225,7 @@ section {
     font-size: calc(80% + 2vw);
     color: #fff;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    transform: translateX(-50px);
 }
 .about .about-content.top p span {
     font-family: 'Luckiest Guy', cursive;
@@ -247,7 +253,7 @@ section {
     animation: float 6s ease-in-out infinite;
 }
 .about .about-content.bottom {
-    margin-top: -70px;
+    margin-top: -250px;
 }
 .about .about-content.bottom .about-column-img {
     display: flex;
@@ -275,7 +281,7 @@ section {
 }
 .about .about-background2 {
     position: absolute;
-    top: 80vh;
+    top: 65vh;
     width: 100%;
     height: 100vh;
     z-index: -2;
@@ -291,12 +297,31 @@ section {
 
 /* skills styling */
 .skills {
-    background: #5050BA;
+    height: 70vh;
+    background: #F0F0F0;
 }
 .skills .skills-content {
+    height: 70vh;
     display: flex;
     justify-content: center;
 }
+.skills .skills-list {
+    height: 100%;
+    width: 40vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    list-style: none;
+}
+.skills .skills-list li {
+    padding: 10px;
+}
+.skills .skills-list img{
+    height: 80px;
+}
+
 .skills #matter-canvas {
     width: 100%;
     max-width: 800px;
@@ -325,7 +350,9 @@ section {
         height: 75vh;
     } */
     .about .resume-btn {
-        top: 0;
+        position: absolute;
+        top: -50px;
+        left: calc(100vw - 215px);
     }
     .about .about-content p {
         text-align: center;
@@ -353,7 +380,7 @@ section {
     .about .about-content .about-column-img img {
         position: absolute;
         top: 0;
-        height: 100vw;
+        height: calc(600px - 15vw);
         max-height: 600px;
     }
     .about .about-content.bottom {

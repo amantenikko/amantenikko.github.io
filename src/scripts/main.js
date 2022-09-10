@@ -5,51 +5,51 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 // });
 
 window.addEventListener('load', function() {
-  const avatarImg = document.querySelector(".about .about-content.top .about-column-img img");
-  const avatarImg2 = document.querySelector(".about .about-content.bottom .about-column-img img");
+//   const avatarImg = document.querySelector(".about .about-content.top .about-column-img img");
+//   const avatarImg2 = document.querySelector(".about .about-content.bottom .about-column-img img");
 
-  gsap.timeline({
-    scrollTrigger: {
-      trigger: avatarImg,
-      start: () => "-=" + avatarImg.offsetWidth + " bottom",
-      end: () => "-=" + avatarImg.offsetWidth + " top",
-      // scrub: 4,
-      toggleActions: "play pause resume reverse",
-      // markers: true,
-    }
-  })
-  .from(".about .about-content.top .about-column-text h2", {x: -2000, opacity: 0, duration: 1})
-  .from(".about .about-content.top .about-column-text p", {x: -2000, opacity: 0, duration: 1}, 0)
-  .from(avatarImg, {y: 700, x: 700, duration: 1}, 0)
-  .from(".about .about-background2", {x: "200vw", duration: 0.5}, 0)
+//   gsap.timeline({
+//     scrollTrigger: {
+//       trigger: avatarImg,
+//       start: () => "-=" + avatarImg.offsetWidth + " bottom",
+//       end: () => "-=" + avatarImg.offsetWidth + " top",
+//       // scrub: 4,
+//       toggleActions: "play pause resume reverse",
+//       // markers: true,
+//     }
+//   })
+//   .from(".about .about-content.top .about-column-text h2", {x: -2000, opacity: 0, duration: 1})
+//   .from(".about .about-content.top .about-column-text p", {x: -2000, opacity: 0, duration: 1}, 0)
+//   .from(avatarImg, {y: 700, x: 700, duration: 1}, 0)
+//   .from(".about .about-background2", {x: "200vw", duration: 0.5}, 0)
   
-  gsap.from(avatarImg2, {
-    scrollTrigger: {
-      trigger: avatarImg2,
-      start: () => "-=" + avatarImg2.offsetWidth + " 80%",
-      end: () => "-=" + avatarImg2.offsetWidth + " 50%",
-      scrub: 4,
-      // markers: true
-    },
-    y: 500,
-    x: -500,
-    duration: 1
-  });
+//   gsap.from(avatarImg2, {
+//     scrollTrigger: {
+//       trigger: avatarImg2,
+//       start: () => "-=" + avatarImg2.offsetWidth + " 80%",
+//       end: () => "-=" + avatarImg2.offsetWidth + " 50%",
+//       scrub: 4,
+//       // markers: true
+//     },
+//     y: 500,
+//     x: -500,
+//     duration: 1
+//   });
 
-  ScrollTrigger.create({
-    trigger: ".home",
-    end: () => window.innerHeight - 200 + " 0",
-    // markers: true,
-    onEnterBack: () => goto("0")
-  });
+//   ScrollTrigger.create({
+//     trigger: ".home",
+//     end: () => window.innerHeight - 200 + " 0",
+//     // markers: true,
+//     onEnterBack: () => goto("0")
+//   });
 
-  ScrollTrigger.create({
-    trigger: ".about",
-    start: "10% bottom",
-    // end: "80% top",
-    // markers: true,
-    onEnter: () => goto(".about")
-  });
+//   ScrollTrigger.create({
+//     trigger: ".about",
+//     start: "10% bottom",
+//     // end: "80% top",
+//     // markers: true,
+//     onEnter: () => goto(".about")
+//   });
 });
 
 // gsap.set(".cursor", {xPercent: -50, yPercent: -50});
@@ -64,12 +64,12 @@ window.addEventListener('load', function() {
 //   }
 // });
 
-function goto(where) { 
-  gsap.to(window, {
-    scrollTo: where,
-    duration: 1
-  });
-}
+// function goto(where) { 
+//   gsap.to(window, {
+//     scrollTo: where,
+//     duration: 1
+//   });
+// }
 
 // const menuBtns = document.querySelectorAll(".navbar .menu .menu-btn");
 // console.log(menuBtns);
@@ -120,7 +120,7 @@ function goto(where) {
 //   });
 // });
 
-// window.addEventListener('load', function() {q
+// window.addEventListener('load', function() {
 //   // module aliases
 //   let Engine = Matter.Engine,
 //       Render = Matter.Render,
@@ -136,14 +136,13 @@ function goto(where) {
   
 //   // create a renderer
 //   let render = Render.create({
-//     // element: document.body,
 //     element: document.querySelector('#matter-canvas'),
-//     // element: document.querySelector('.skills'),
 //     engine: engine,
 //     options: {
 //       width: 1000,
 //       height: 600,
-//       background: '#fff',
+//       background: 'transparent',
+//       wireframeBackground: 'transparent',
 //       showAngleIndicator: false,
 //       wireframes: false
 //     } 
@@ -160,10 +159,10 @@ function goto(where) {
   
 //   Composite.add(world, [
 //     Bodies.rectangle(100 + space * 0, 150, 50, 50, { restitution: rest }),
-//     Bodies.rectangle(100 + space * 1, 150, 50, 50, { restitution: rest, angle: -Math.PI * 0.15 }),
-//     Bodies.rectangle(100 + space * 2, 150, 50, 50, { restitution: rest, angle: -Math.PI * 0.25 }),
+//     Bodies.rectangle(100 + space * 1, 150, 50, 50, { restitution: rest, angle: -Math.PI * 0.15, friction: 0.1, frictionAir: 0.001, restitution: 0}),
+//     Bodies.rectangle(100 + space * 2, 150, 50, 50, { restitution: rest, angle: -Math.PI * 0.25, friction: 0.1, frictionAir: 0.001, restitution: 0}),
 //     Bodies.circle(100 + space * 3, 150, 25, { restitution: rest }),
-//     Bodies.rectangle(100 + space * 5, 150, 180, 20, { restitution: rest, angle: -Math.PI * 0.5 }),
+//     Bodies.rectangle(100 + space * 5, 150, 180, 20, { restitution: rest, angle: -Math.PI * 0.5, friction: 0.1, frictionAir: 0.001, restitution: 0}),
 //     // walls
 //     Bodies.rectangle(400, -210, 1150, 500, { isStatic: true }),   //top
 //     Bodies.rectangle(400, 810, 1150, 500, { isStatic: true }),    //down 
