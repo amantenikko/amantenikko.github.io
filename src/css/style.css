@@ -28,6 +28,25 @@ section {
     width: 100%;
     min-width: 900;
 }
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 120vh;
+}
+#particles-js p {
+    position: absolute;
+    top: 30vh;
+    width: 100%;
+    text-align: center;
+    font-family: 'Mochiy Pop One', sans-serif;
+    font-size: 3vw;
+    color: #C14747;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
 .container {
     padding: 0 10vw;
     margin: auto;
@@ -129,10 +148,14 @@ section {
     top: 0;
     width: 25%;
     height: 80%;
+
+    background: none;
+    pointer-events: none;
 }
 .home .social-container li {
     list-style: none;
     margin-bottom: 20px;
+    pointer-events: all;
 }
 .home .social-container .social-menu {
     display: flex;
@@ -186,9 +209,10 @@ section {
     height: 180vh;
     padding-top: 170px;
     z-index: 1;
+    pointer-events: none;
 }
 .about .resume-btn {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 .about .resume-btn a svg {
     margin: 0px 15px 0px 10px;
@@ -217,25 +241,28 @@ section {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    pointer-events: all;
 }
 .about .about-content p {
     font-family: 'Mochiy Pop One', sans-serif;
-    font-size: calc(65% + 1vw);
+    font-size: 20px;
     color: #fff;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
 .about .about-content.top h2 {
     margin-bottom: 5vw;
     font-family: 'Luckiest Guy', cursive;
-    font-size: calc(80% + 2vw);
+    font-size: 35px;
     color: #fff;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
     transform: translateX(-50px);
 }
 .about .about-content.top p span {
+    position: absolute;
     font-family: 'Luckiest Guy', cursive;
-    font-size: calc(100% + 3vw);
+    font-size: 40px;
     color: #C14747;
+    transform: translate(5px, -13px);
 }
 .about .about-content .about-column-text {
     flex: 1.5;
@@ -302,11 +329,14 @@ section {
 
 /* skills styling */
 .skills {
-    height: 70vh;
+    height: 100vh;
     background: #F0F0F0;
 }
+.skills .container {
+    height: 100%;
+}
 .skills .skills-content {
-    height: 70vh;
+    height: 100%;
     display: flex;
     justify-content: center;
 }
@@ -436,8 +466,11 @@ section {
     }
 }
 
-@media (min-height: 950px) {
-
+@media (max-width: 1024px) {
+    .skills .skills-list li {
+        width: 100px;
+        height: 130px;
+    }
 }  
 
 @media  (prefers-color-scheme: dark),

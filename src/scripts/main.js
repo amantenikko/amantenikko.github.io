@@ -50,6 +50,9 @@ window.addEventListener('load', function() {
 //     // markers: true,
 //     onEnter: () => goto(".about")
 //   });
+
+    /* ---- particles.js config ---- */
+    particlesJS.load('particles-js', 'particles-config.json');
 });
 
 // gsap.set(".cursor", {xPercent: -50, yPercent: -50});
