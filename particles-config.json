@@ -3,7 +3,7 @@
     "number": {
       "value": 80,
       "density": {
-        "enable": false,
+        "enable": true,
         "value_area": 800
       }
     },
@@ -106,5 +106,5 @@
       }
     }
   },
-  "retina_detect": false
+  "retina_detect": true
 }

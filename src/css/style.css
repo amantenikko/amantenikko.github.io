@@ -48,8 +48,14 @@ section {
 }
 
 .container {
-    padding: 0 10vw;
+    padding: 0 20vw;
     margin: auto;
+}
+.text-style {
+    font-family: 'Mochiy Pop One', sans-serif;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 0px 4px 4px rgb(0 0 0 / 50%);
 }
 
 
@@ -63,6 +69,7 @@ section {
 .navbar .container {
     display: flex;
     justify-content: space-between;
+    padding: 0 50px;
 }
 .navbar .logo a {
     width: 220px;
@@ -238,16 +245,11 @@ section {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 .about .about-content {
+    height: 80vh;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     pointer-events: all;
-}
-.about .about-content p {
-    font-family: 'Mochiy Pop One', sans-serif;
-    font-size: 20px;
-    color: #fff;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
 .about .about-content.top h2 {
     margin-bottom: 5vw;
@@ -329,7 +331,7 @@ section {
 
 /* skills styling */
 .skills {
-    height: 100vh;
+    height: 70vh;
     background: #F0F0F0;
 }
 .skills .container {
@@ -338,10 +340,12 @@ section {
 .skills .skills-content {
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
 }
 .skills .skills-list {
-    height: 100%;
+    height: auto;
     width: 40vw;
     min-width: 600px;
     display: flex;
@@ -358,11 +362,11 @@ section {
 
     font-family: 'Mochiy Pop One', sans-serif;
     font-size: 13px;
-    color: #000;
+    color: #fff;
+    text-shadow: 0px 4px 4px rgb(0 0 0 / 50%);
+    
     background-color: transparent;
     filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.5));
-    /* background-color: #525252; */
-    /* border-radius: 15px; */
     perspective: 1000px;
 }
 .skills .skills-list svg{
@@ -373,7 +377,7 @@ section {
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.8s;
+    transition: transform 0.7s;
     transform-style: preserve-3d;
   }
 .flip-card-front, .flip-card-back {
