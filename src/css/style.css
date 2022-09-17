@@ -24,29 +24,7 @@ body {
 
 section {
     overflow: hidden;
-    height: 100vh;
-    width: 100%;
-    min-width: 900;
 }
-#particles-js {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 120vh;
-}
-#particles-js p {
-    position: absolute;
-    top: 30vh;
-    width: 100%;
-    text-align: center;
-    font-family: 'Mochiy Pop One', sans-serif;
-    font-size: 3vw;
-    color: #C14747;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-    pointer-events: none;
-}
-
 .container {
     padding: 0 20vw;
     margin: auto;
@@ -57,8 +35,9 @@ section {
     color: #fff;
     text-shadow: 0px 4px 4px rgb(0 0 0 / 50%);
 }
+.about .about-content.top h2 ,
 .skills .skills-content h2,
-.about .about-content.top h2 {
+.projects h2 {
     position: absolute;
     top: 0;
     left: 0;
@@ -66,9 +45,16 @@ section {
     font-size: 35px;
     color: #fff;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-    transform: translate(-70px, 0px);
+    transform: translate(calc(100px - 9vw), 0px);
 }
 
+#particles-js {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 120vh;
+}
 
 /* navbar styling */
 .navbar {
@@ -149,24 +135,11 @@ section {
     background-image: linear-gradient(0deg, transparent 48px, rgb(233, 233, 233) 50px), linear-gradient(90deg, transparent 48px, rgb(233, 233, 233) 50px);
     background-size: 50px 50px;
 }
-.home .cursor {
-    width: 50px;
-    height: 50px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: 3px solid dodgerblue;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: -1;
-}
 .home .social-container {
-    position: sticky;
-    left: calc(100% - 60px);
-    top: 0;
-    width: 25%;
+    position: absolute;
+    left: calc(100% - 200px);
     height: 80%;
-
+    overflow: hidden;
     background: none;
     pointer-events: none;
 }
@@ -224,10 +197,11 @@ section {
 /* about styling */
 .about {
     position: relative;
-    height: 180vh;
+    height: 160vh;
     padding-top: 170px;
     z-index: 1;
     pointer-events: none;
+    margin-bottom: 10vh;
 }
 .about .resume-btn {
     margin-top: 50px;
@@ -286,13 +260,14 @@ section {
     width: 100%;
     position: absolute;
     text-align: justify;
+    text-indent: 10rem;
 }
 .about .about-content.top .about-column-img {
     display: flex;
     justify-content: center;
     flex: 1;
     z-index: -3;
-    height: 80vh;
+    /* height: 80vh; */
     /* filter: drop-shadow(20px 15px 4px rgba(0, 0, 0, 0.5)); */
     animation: float 6s ease-in-out infinite;
 }
@@ -304,7 +279,7 @@ section {
     justify-content: center;
     flex: 1;
     z-index: -2;
-    height: 80vh;
+    /* height: 80vh; */
     /* filter: drop-shadow(20px 15px 4px rgba(0, 0, 0, 0.5)); */
     animation: float 6s ease-in-out infinite;
     animation-delay: 2s;
@@ -341,7 +316,7 @@ section {
 
 /* skills styling */
 .skills {
-    height: 70vh;
+    padding: 100px 0px;
     background: #F0F0F0;
 }
 .skills .container {
@@ -356,6 +331,7 @@ section {
     align-items: center;
 }
 .skills .skills-list {
+    padding-top: 100px;
     height: auto;
     width: 40vw;
     min-width: 600px;
@@ -428,13 +404,142 @@ section {
     width: 100%;
 }
 
+/* projects styling */
+.projects {
+    padding: 100px 0;
+    /* background-image: linear-gradient(0deg, transparent 96px, rgb(233, 233, 233) 100px), linear-gradient(90deg, transparent 96px, rgb(233, 233, 233) 100px);
+    background-size: 100px 100px;
+    background-attachment: fixed;
+    background-position: 7px -15px; */
+}
+.projects .container {
+    height: 100%;
+}
+.projects .projects-content {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding-top: 120px;
+}
+.projects .carousel {
+    filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.5));
+}
+.projects .carousel .card {
+    height: 400px;
+    margin: 0 5px;
+    background: #3A3A84;
+    border-radius: 25px;
+    padding: 25px 35px;
+    color: #FFF;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.projects .carousel .card:hover {
+    background: #C14747;
+}
+.projects .carousel .card .box {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+.projects .carousel .card:hover .box {
+    transform: scale(1.05);
+}
+.projects .carousel .card .text span {
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+}
+.projects .carousel .card ul {
+    list-style: none;
+    display: flex;
+}
+.projects .carousel .card ul li {
+    margin-top: 20px;
+    margin-left: 10px;
+    height: 40px;
+    width: 40px;
+}
+.projects .carousel .card ul svg {
+    height: 100%;
+    width: 100%;
+    filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.5));
+}
+.projects .carousel .card img {
+    max-height: 200px;;
+    object-fit: scale-down;
+    transition: all 0.3s ease;
+}
+.projects .owl-dots {
+    text-align: center;
+    margin-top: 20px;
+}
+.projects .owl-dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px;
+    outline: none!important;
+    border-radius: 50%;
+    border: 2px solid #5050BA!important;
+    transition: all 0.3s ease;
+}
+.projects .owl-dot.active {
+    width: 20px;
+    border-radius: 14px;
+}
+.projects .owl-dot.active,
+.projects .owl-dot:hover {
+    background: #5050BA!important;
+}
+
 
 /* responsive media query start */
+@media (max-width: 480px) {
+    .text-style {
+        font-size: 15px!important;
+    }
+    .about .about-content.top p span {
+        font-size: 30px!important;
+    }
+    .about .about-content.top {
+        height: 70vh!important;
+    }
+    .skills .skills-list li {
+        width: 70px!important;
+        height: 100px!important;
+    }
+    .skills .skills-list svg {
+        height: 50px;
+    }
+    .skills .skills-list li {
+        font-size: 9px;
+    }
+}
 @media (max-width: 900px) {
+    .container {
+        padding: 0 5vw;
+    }
+    .text-style {
+        font-size: 20px;
+    }
+    .about .about-content.top h2,
+    .skills .skills-content h2,
+    .projects h2 {
+        font-size: 20px;
+        transform: none;
+    }
+
     .navbar .menu {
         display: none;
     }
+    .about {
+    padding-top: 100px;
+    }
     .about .resume-btn {
+        display: none;
         position: absolute;
         top: -50px;
         left: calc(100vw - 215px);
@@ -445,7 +550,7 @@ section {
     }
     .about .about-content.top {
         flex-direction: column-reverse;
-        height: 80vh;
+        height: 75vh;
     }
     .about .about-content.top h2 span::after {
         content: "\a"; 
@@ -454,6 +559,10 @@ section {
     .about .about-content.top .about-column-text {
         display: flex;
         align-items: center;
+    }
+    .about .about-content.top p span {
+        position: unset;
+        font-size: 30px;
     }
     .about .about-content .about-column-img {
         position: relative;
@@ -467,21 +576,38 @@ section {
     .about .about-content.bottom {
         flex-direction: column;
         height: 70vh;
+        margin-top: 0;
     }
     .about .about-content.bottom .about-column-text p {
-        top: calc(55% + 4vw);
+        position: unset;
+    }
+    .skills .skills-list {
+        width: 100%;
+        min-width: 0;
     }
 }
-
 @media (max-width: 1024px) {
     .skills .skills-list li {
         width: 100px;
         height: 130px;
     }
 }  
+/* @media (max-width: 1440px) {
+    .about .about-content.top h2, .skills .skills-content h2, .projects h2 {
+        transform: translate(-150px, 0px);
+    }
+} */
 
-@media  (prefers-color-scheme: dark),
-        (prefers-color-scheme: light) {
+@media (max-height: 850px) {
+    .text-style {
+        font-size: 20px;
+    }
+    .about .about-content.top p span {
+        font-size: 40px;
+    }
+}
+
+@media  (prefers-color-scheme: dark) {
     body {
         background: #222222;
     }
@@ -489,7 +615,8 @@ section {
     .navbar .logo a,
     .navbar .menu li a,
     .about .about-background2 div,
-    .flip-card-front {
+    .flip-card-front,
+    .projects .carousel .card {
         background: #414141;
     }
     .navbar .logo a svg path,
@@ -507,13 +634,23 @@ section {
     .skills {
         background: transparent;
     }
-    .skills .skills-list li svg .color-group path,
-    .skills .skills-list li svg .color-group circle {
+    li svg .color-group path,
+    li svg .color-group circle {
         fill: #FFF;
         stroke: none;
     }
-    .skills .skills-list li svg .color-group2 path {
+    li svg .color-group2 path {
         fill: #525252;
+    }
+    .carousel .card:hover li svg .color-group2 path {
+        fill: #C14747;
+    }
+    .projects .owl-dot {
+        border: 2px solid white!important;
+    }
+    .projects .owl-dot.active,
+    .projects .owl-dot:hover {
+        background: white!important;
     }
 }
 

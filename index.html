@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nikko Amante</title>
     <link rel="icon" type="image/svg+xml" href="./src/img/logo.svg" />
-    <link rel="stylesheet" href="./src/css/style.css">
+    <script src="./src/scripts/plugins/svg-inject.min.js"></script>
+    <script src="./src/scripts/plugins/particles.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.min.js"></script>
-
-    <script src="./src/scripts/plugins/svg-inject.min.js"></script>
-    <script src="./src/scripts/plugins/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.144.0/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <link rel="stylesheet" href="./src/css/style.css">
   </head>
   <body>
     <div id="app">
-      <div id="particles-js"><p>This website is still in development.</p></div>
+      <div id="particles-js"></div>
       <!-- navbar section start -->
       <nav class="navbar">
         <div class="container">
@@ -34,17 +36,15 @@
 
       <!-- home section start -->
       <section class="home" id="home">
-        <div class="home-background"></div>
+        <div id="home-background" class="home-background"></div>
         <div class="social-container">
           <ul class="social-menu">
-            <li><a href="#" class="social-btn"><img src="./src/img/icon_fb.svg" onload="SVGInject(this)">Facebook</a></li>
-            <li><a href="#" class="social-btn"><img src="./src/img/icon_linkedin.svg" onload="SVGInject(this)">LinkedIn</a></li>
-            <li><a href="#" class="social-btn"><img src="./src/img/icon_github.svg" onload="SVGInject(this)">Github</a></li>
+            <li><a href="#" class="social-btn"><img src="./src/img/icons/icon_linkedin.svg" onload="SVGInject(this)">LinkedIn</a></li>
+            <li><a href="#" class="social-btn"><img src="./src/img/icons/icon_github.svg" onload="SVGInject(this)">Github</a></li>
           </ul>
         </div>
         <div class="container">
           <div class="home-content">
-            <div class="cursor"></div>
           </div>
         </div>
       </section>
@@ -66,7 +66,7 @@
                 Philippines.<br>
               </p>
               <div class="resume-btn">
-                <a href="#" class="social-btn"><img src="./src/img/icon_resume.svg" onload="SVGInject(this)">
+                <a href="#" class="social-btn"><img src="./src/img/icons/icon_resume.svg" onload="SVGInject(this)">
                 Resume</a>
               </div>
             </div>
@@ -80,7 +80,7 @@
             </div>
             <div class="about-column-text">
               <p class="text-style">
-                A fresh graduate in BS Computer Engineering, primarily interes in software development, can do both frontend and backend.
+                A fresh graduate in BS Computer Engineering, primarily interest in software development, can do both frontend and backend.
                 Well-organised person, problem solver, an employee with high attention to detail.
               </p>
             </div>
@@ -98,55 +98,55 @@
               <ul class="skills-list">
                 <li>
                     <div class="flip-card-inner">
-                      <div class="flip-card-front"><img src="./src/img/icon_HTML.svg" onload="SVGInject(this)"></div>
+                      <div class="flip-card-front"><img src="./src/img/icons/icon_HTML.svg" onload="SVGInject(this)"></div>
                       <div class="flip-card-back">HTML</div>
                     </div>
                 </li>
                 <li>
                     <div class="flip-card-inner">
-                      <div class="flip-card-front"><img src="./src/img/icon_CSS.svg" onload="SVGInject(this)"></div>
+                      <div class="flip-card-front"><img src="./src/img/icons/icon_CSS.svg" onload="SVGInject(this)"></div>
                       <div class="flip-card-back">CSS</div>
                     </div>
                 </li>
                 <li>
                     <div class="flip-card-inner">
-                      <div class="flip-card-front"><img src="./src/img/icon_JS.svg" onload="SVGInject(this)"></div>
+                      <div class="flip-card-front"><img src="./src/img/icons/icon_JS.svg" onload="SVGInject(this)"></div>
                       <div class="flip-card-back">Javascript</div>
                     </div>
                 </li>
                 <li>
                     <div class="flip-card-inner">
-                      <div class="flip-card-front"><img src="./src/img/icon_JQuery.svg" onload="SVGInject(this)"></div>
+                      <div class="flip-card-front"><img src="./src/img/icons/icon_JQuery.svg" onload="SVGInject(this)"></div>
                       <div class="flip-card-back">JQuery</div>
                     </div>
                 </li>
                 <li>
                     <div class="flip-card-inner">
-                      <div class="flip-card-front"><img src="./src/img/icon_Java.svg" onload="SVGInject(this)"></div>
+                      <div class="flip-card-front"><img src="./src/img/icons/icon_Java.svg" onload="SVGInject(this)"></div>
                       <div class="flip-card-back">Java</div>
                     </div>
                 </li>
                 <li>
                     <div class="flip-card-inner">
-                      <div class="flip-card-front"><img src="./src/img/icon_VisualBasic.svg" onload="SVGInject(this)"></div>
+                      <div class="flip-card-front"><img src="./src/img/icons/icon_VisualBasic.svg" onload="SVGInject(this)"></div>
                       <div class="flip-card-back">VisualBasic<br>.NET</div>
                     </div>
                 </li>
                 <li>
                     <div class="flip-card-inner">
-                      <div class="flip-card-front"><img src="./src/img/icon_MySQL.svg" onload="SVGInject(this)"></div>
+                      <div class="flip-card-front"><img src="./src/img/icons/icon_MySQL.svg" onload="SVGInject(this)"></div>
                       <div class="flip-card-back">MySQL</div>
                     </div>
                 </li>
                 <li>
                     <div class="flip-card-inner">
-                      <div class="flip-card-front"><img src="./src/img/icon_SQLite.svg" onload="SVGInject(this)"></div>
+                      <div class="flip-card-front"><img src="./src/img/icons/icon_SQLite.svg" onload="SVGInject(this)"></div>
                       <div class="flip-card-back">SQLite</div>
                     </div>
                 </li>
                 <li>
                     <div class="flip-card-inner">
-                      <div class="flip-card-front"><img src="./src/img/icon_Arduino.svg" onload="SVGInject(this)"></div>
+                      <div class="flip-card-front"><img src="./src/img/icons/icon_Arduino.svg" onload="SVGInject(this)"></div>
                       <div class="flip-card-back">Arduino</div>
                     </div>
                 </li>
@@ -155,17 +155,80 @@
             </div>
         </div>
       </section>
-      <!-- skills section start -->
+      <!-- skills section end -->
 
       <!-- projects section start -->
       <section class="projects" id="projects">
         <div class="container">
-            <div class="projects-content">
-
+          <div class="projects-content">
+            <h2>Projects</h2>
+            <div class="carousel owl-carousel">
+              <div class="card">
+                  <div class="box">
+                      <img src="./src/img/logo.svg" alt="">
+                      <div class="text">
+                        <span>Portfolio Website</span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="card">
+                  <div class="box">
+                      <img src="./src/img/projects/project-aspg.png" alt="">
+                      <div class="text">
+                        <span>Safety Prevention Gateway</span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <ul>
+                          <li><img src="./src/img/icons/icon_VisualBasic.svg"  onload="SVGInject(this)"></li>
+                          <li><img src="./src/img/icons/icon_MySQL.svg"  onload="SVGInject(this)"></li>
+                          <li><img src="./src/img/icons/icon_Arduino.svg"  onload="SVGInject(this)"></li>
+                        </ul>
+                      </div>
+                  </div>
+              </div>
+              <div class="card">
+                  <div class="box">
+                      <img src="./src/img/projects/project-elixer1.png" alt="">
+                      <div class="text">
+                        <span>EMPC Inventory System</span>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <ul>
+                          <li><img src="./src/img/icons/icon_VisualBasic.svg"  onload="SVGInject(this)"></li>
+                          <li><img src="./src/img/icons/icon_SQLite.svg"  onload="SVGInject(this)"></li>
+                          <li><img src="./src/img/icons/icon_MSoffice.svg"  onload="SVGInject(this)"></li>
+                        </ul>
+                      </div>
+                  </div>
+              </div>
+              <div class="card">
+                  <div class="box">
+                      <img src="./src/img/projects/project-sliding-puzzle.png" alt="">
+                      <div class="text">
+                        <span>Java Sliding Puzzle</span>
+                        <p>a simple game made in java.</p>
+                        <ul>
+                          <li><img src="./src/img/icons/icon_Java.svg"  onload="SVGInject(this)"></li>
+                        </ul>
+                      </div>
+                  </div>
+              </div>
+              <div class="card">
+                <div class="box">
+                    <img src="" alt="">
+                    <div class="text">
+                      <span>Coming Soon...</span>
+                      <p>...</p>
+                      <ul>
+                        <li><img src=""></li>
+                      </ul>
+                    </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
       </section>
-      <!-- projects section start -->
+      <!-- projects section end -->
     </div>
     <script type="module" src="./src/scripts/main.js"></script>
   </body>

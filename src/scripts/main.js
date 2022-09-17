@@ -1,8 +1,27 @@
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+// gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-// $(function(){
-//   $("#app").load("./src/content.txt"); 
-// });
+$(function(){
+    $('.carousel').owlCarousel({
+        margin: 30,
+        loop: true,
+        autoplay: true,
+        autoplayTimeOut: 1000,
+        autoplayHoverPause: true,
+        nav: false,
+        responsive: {
+            0:{
+                items: 1,
+            },
+            1500:{
+                items: 2,
+            },
+            2000:{
+                items: 3,
+            }
+        }
+    });
+});
+
 
 window.addEventListener('load', function() {
 //   const avatarImg = document.querySelector(".about .about-content.top .about-column-img img");
@@ -52,7 +71,47 @@ window.addEventListener('load', function() {
 //   });
 
     /* ---- particles.js config ---- */
-    particlesJS.load('particles-js', 'particles-config.json');
+    // particlesJS.load('particles-js', 'particles-config.json');
+
+    const sizes = {
+        width: window.innerWidth,
+        height: window.innerHeight
+    }
+    
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera( 75, sizes.width / sizes.height, 0.1, 1000 );
+    
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setSize( sizes.width, sizes.height );
+    document.querySelector('#particles-js').appendChild( renderer.domElement );
+    
+    const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+    const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    const cube = new THREE.Mesh( geometry, material );
+    scene.add( cube );
+    
+    camera.position.z = 3;
+    renderer.render( scene, camera );
+    (function animate() {
+        requestAnimationFrame( animate );
+        cube.rotation.y += 0.02;
+        renderer.render( scene, camera );
+    })(); // animate();
+
+    window.addEventListener('resize', () =>
+    {
+    // Update sizes
+    sizes.width = window.innerWidth
+    // sizes.height = window.innerHeight
+
+    // Update camera
+    camera.aspect = sizes.width / sizes.height
+    camera.updateProjectionMatrix()
+
+    // Update renderer
+    renderer.setSize(sizes.width, sizes.height)
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    })
 });
 
 // gsap.set(".cursor", {xPercent: -50, yPercent: -50});
