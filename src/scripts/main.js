@@ -144,7 +144,7 @@ window.addEventListener('load', function() {
 
     window.addEventListener('resize', () =>
     {   
-        model.position.x = (canvas.offsetWidth < 1000)? 0: 5;
+        model.position.x = (canvas.offsetWidth < 1200)? 0: 5;
         sizes.width = canvas.offsetWidth;
         sizes.height = canvas.offsetHeight;
 
