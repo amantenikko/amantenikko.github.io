@@ -43,9 +43,15 @@ section {
     left: 0;
     font-family: 'Luckiest Guy', cursive;
     font-size: 35px;
-    color: #fff;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
     transform: translate(calc(100px - 9vw), 0px);
+}
+.about .about-content.top h2  {
+    color: #fff;
+}
+.skills .skills-content h2,
+.projects h2 {
+    color: #5050BA;
 }
 
 #particles-js {
@@ -197,11 +203,10 @@ section {
 /* about styling */
 .about {
     position: relative;
-    height: 160vh;
+    height: 170vh;
     padding-top: 170px;
     z-index: 1;
     pointer-events: none;
-    margin-bottom: 10vh;
 }
 .about .resume-btn {
     margin-top: 50px;
@@ -290,7 +295,7 @@ section {
     width: 100%;
     height: 100vh;
     z-index: -3;
-    /* filter: drop-shadow(8px 8px 10px rgba(0, 0, 0, 0.5)); */
+    filter: drop-shadow(8px 8px 10px rgba(0, 0, 0, 0.5));
 }
 .about .about-background div {
     width: 100%;
@@ -304,7 +309,7 @@ section {
     width: 100%;
     height: 100vh;
     z-index: -2;
-    /* filter: drop-shadow(8px 8px 10px rgba(0, 0, 0, 0.5)); */
+    filter: drop-shadow(8px 8px 10px rgba(0, 0, 0, 0.5));
 }
 .about .about-background2 div {
     width: 100%;
@@ -406,11 +411,14 @@ section {
 
 /* projects styling */
 .projects {
+    margin-top: 100px;
     padding: 100px 0;
-    /* background-image: linear-gradient(0deg, transparent 96px, rgb(233, 233, 233) 100px), linear-gradient(90deg, transparent 96px, rgb(233, 233, 233) 100px);
-    background-size: 100px 100px;
+    background-image: linear-gradient(0deg, transparent 49px, rgb(233, 233, 233) 50px), linear-gradient(90deg, transparent 49px, rgb(233, 233, 233) 50px);
+    background-size: 50px 50px;
     background-attachment: fixed;
-    background-position: 7px -15px; */
+    background-position: 7px -15px;
+
+    filter: drop-shadow(0px -1px 25px rgba(0, 0, 0, 0.5));
 }
 .projects .container {
     height: 100%;
@@ -420,6 +428,24 @@ section {
     justify-content: center;
     position: relative;
     padding-top: 120px;
+}
+.projects .tooltiptext {
+    visibility: hidden;
+    /* width: 120px; */
+    background-color: #3A3A84;
+    font-size: 1rem!important;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+
+    /* Position the tooltip */
+    position: absolute;
+    transform: translate(-50%, -150%);
+    z-index: 1;
+}
+.projects  li:hover .tooltiptext {
+    visibility: visible;
 }
 .projects .carousel {
     filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.5));
@@ -482,16 +508,14 @@ section {
     width: 10px;
     margin: 0 5px;
     outline: none!important;
-    border-radius: 50%;
     border: 2px solid #5050BA!important;
     transition: all 0.3s ease;
 }
 .projects .owl-dot.active {
     width: 20px;
-    border-radius: 14px;
 }
-.projects .owl-dot.active,
-.projects .owl-dot:hover {
+.projects .owl-dot:hover,
+.projects .owl-dot.active {
     background: #5050BA!important;
 }
 
@@ -519,9 +543,6 @@ section {
     }
 }
 @media (max-width: 900px) {
-    .container {
-        padding: 0 5vw;
-    }
     .text-style {
         font-size: 20px;
     }
@@ -591,6 +612,14 @@ section {
         width: 100px;
         height: 130px;
     }
+    .container {
+        padding: 0 5vw;
+    }
+}  
+@media (max-width: 1900px) {
+    .container {
+        padding: 0 10vw;
+    }
 }  
 /* @media (max-width: 1440px) {
     .about .about-content.top h2, .skills .skills-content h2, .projects h2 {
@@ -598,12 +627,18 @@ section {
     }
 } */
 
-@media (max-height: 850px) {
+@media (max-height: 1000px) and (max-width: 1500px) {
     .text-style {
         font-size: 20px;
     }
     .about .about-content.top p span {
         font-size: 40px;
+    }
+    .about .resume-btn {
+        margin-top: 20px;
+    }
+    .about {
+        padding-top: 110px;
     }
 }
 
@@ -611,6 +646,11 @@ section {
     body {
         background: #222222;
     }
+    .skills .skills-content h2,
+    .projects h2 {
+        color: #fff;
+    }
+
     .navbar,
     .navbar .logo a,
     .navbar .menu li a,
@@ -645,11 +685,15 @@ section {
     .carousel .card:hover li svg .color-group2 path {
         fill: #C14747;
     }
+    .projects,
+    .projects .tooltiptext {
+        background-color: #252525;
+    }
     .projects .owl-dot {
         border: 2px solid white!important;
     }
-    .projects .owl-dot.active,
-    .projects .owl-dot:hover {
+    .projects .owl-dot:hover,
+    .projects .owl-dot.active {
         background: white!important;
     }
 }
