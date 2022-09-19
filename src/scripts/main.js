@@ -15,10 +15,10 @@ $(function(){
             0:{
                 items: 1,
             },
-            1500:{
+            1000:{
                 items: 2,
             },
-            2000:{
+            1500:{
                 items: 3,
             }
         }
@@ -74,11 +74,10 @@ window.addEventListener('load', function() {
 //   });
 
     /* ---- particles.js config ---- */
-    // particlesJS.load('particles-js', 'particles-config.json');
+    // particlesJS.load('canvas-container', 'particles-config.json');
 
-    const canvas = document.querySelector("#particles-js");
+    const canvas = document.querySelector("#canvas-container");
     const backgroundColor = "#FFF";
-    let model;
     const sizes = {
         width: canvas.offsetWidth,
         height: canvas.offsetHeight
@@ -89,13 +88,21 @@ window.addEventListener('load', function() {
     const camera = new THREE.PerspectiveCamera( 75, sizes.width / sizes.height, 0.1, 1000 );
     camera.lookAt( scene.position );
     camera.position.set(0, 3, 15);
+    camera.position.z = (canvas.offsetWidth < 600)? 20: 15;
     
+    let model;
+    let material = new THREE.MeshStandardMaterial({color: 0xC14747});
     const loader = new GLTFLoader();
     loader.load( '/src/NA.glb', function ( gltf ) {
         model = gltf.scene;
         model.scale.set(1, 1, 1);
-        model.position.x = 5;
-        
+        model.position.x = (canvas.offsetWidth < 1200)? 0: 5;
+        model.traverse((o) => {
+            if (o.isMesh) {
+                o.material = material;
+                o.castShadow = true;
+            };
+        });
         scene.add( model );
     },undefined, function (error) {
         console.error(error);
@@ -120,22 +127,23 @@ window.addEventListener('load', function() {
     
     let floorGeo = new THREE.PlaneGeometry(5000, 5000, 1, 1);
     let floorMat = new THREE.MeshPhongMaterial({
-        color: 0xeeeeee,
+        color: 0xE0E0E0,
       shininess: 0
     });
     let floor = new THREE.Mesh(floorGeo, floorMat);
     floor.rotation.x = -0.5 * Math.PI;
     floor.receiveShadow = true;
-    floor.position.y = -11;
     scene.add(floor);
     
     const renderer = new THREE.WebGLRenderer({ alpha: true });
-    renderer.setSize( sizes.width, sizes.height );
+    renderer.shadowMap.enabled = true;
+    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     canvas.appendChild( renderer.domElement );
+    
+    renderer.setSize( sizes.width, sizes.height );
     renderer.render( scene, camera );
 
     (function animate() {
-
         requestAnimationFrame( animate );
         renderer.render( scene, camera );
 
@@ -144,6 +152,7 @@ window.addEventListener('load', function() {
 
     window.addEventListener('resize', () =>
     {   
+        camera.position.z = (canvas.offsetWidth < 600)? 20: 15;
         model.position.x = (canvas.offsetWidth < 1200)? 0: 5;
         sizes.width = canvas.offsetWidth;
         sizes.height = canvas.offsetHeight;
