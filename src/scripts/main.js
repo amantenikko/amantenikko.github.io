@@ -1,7 +1,8 @@
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.module.js";
 import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/loaders/GLTFLoader.js";
 
-// gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+// gsap.to(window, {scrollTo: "Top"});
 
 $(function(){
     $('.carousel').owlCarousel({
@@ -23,58 +24,43 @@ $(function(){
             }
         }
     });
-});
 
+    $(".btn-learn-more").on('click', function () {
+        $(".modal").attr("style", "display: block;");
+        $('.owl-carousel').data('owl.carousel').options.autoplay = false;
+        $('.owl-carousel').trigger( 'refresh.owl.carousel' );
+    });
 
-window.addEventListener('load', function() {
-//   const avatarImg = document.querySelector(".about .about-content.top .about-column-img img");
-//   const avatarImg2 = document.querySelector(".about .about-content.bottom .about-column-img img");
+    $(".close-btn").on('click', function () {
+        $(this).parent().attr("style", "display: none;");
+        $('.owl-carousel').data('owl.carousel').options.autoplay = true;
+        $('.owl-carousel').trigger( 'refresh.owl.carousel' );
+    });
+    
+    const menuBtns = document.querySelectorAll(".navbar .menu .menu-btn");
+    menuBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            gsap.to(window, {
+                scrollTo: "#" + btn.innerText.toString().toLowerCase(),
+                duration: 2,
+            });
+        })
+    });
 
-//   gsap.timeline({
-//     scrollTrigger: {
-//       trigger: avatarImg,
-//       start: () => "-=" + avatarImg.offsetWidth + " bottom",
-//       end: () => "-=" + avatarImg.offsetWidth + " top",
-//       // scrub: 4,
-//       toggleActions: "play pause resume reverse",
-//       // markers: true,
-//     }
-//   })
-//   .from(".about .about-content.top .about-column-text h2", {x: -2000, opacity: 0, duration: 1})
-//   .from(".about .about-content.top .about-column-text p", {x: -2000, opacity: 0, duration: 1}, 0)
-//   .from(avatarImg, {y: 700, x: 700, duration: 1}, 0)
-//   .from(".about .about-background2", {x: "200vw", duration: 0.5}, 0)
-  
-//   gsap.from(avatarImg2, {
-//     scrollTrigger: {
-//       trigger: avatarImg2,
-//       start: () => "-=" + avatarImg2.offsetWidth + " 80%",
-//       end: () => "-=" + avatarImg2.offsetWidth + " 50%",
-//       scrub: 4,
-//       // markers: true
-//     },
-//     y: 500,
-//     x: -500,
-//     duration: 1
-//   });
-
-//   ScrollTrigger.create({
-//     trigger: ".home",
-//     end: () => window.innerHeight - 200 + " 0",
-//     // markers: true,
-//     onEnterBack: () => goto("0")
-//   });
-
-//   ScrollTrigger.create({
-//     trigger: ".about",
-//     start: "10% bottom",
-//     // end: "80% top",
-//     // markers: true,
-//     onEnter: () => goto(".about")
-//   });
-
-    /* ---- particles.js config ---- */
-    // particlesJS.load('canvas-container', 'particles-config.json');
+    const aboutCntnts = document.querySelectorAll(".to-be-animate");
+    aboutCntnts.forEach(aboutCntnt => {
+        gsap.from(aboutCntnt, {
+        scrollTrigger: {
+            trigger: aboutCntnt,
+            start: "Bottom 90%",
+            end: "Top Top",
+            toggleActions: "play none resume reverse",
+        },
+        opacity: 0,
+        y: 100,
+        duration: 1
+        });
+    });
 
     const canvas = document.querySelector("#canvas-container");
     const backgroundColor = "#FFF";
@@ -128,7 +114,7 @@ window.addEventListener('load', function() {
     let floorGeo = new THREE.PlaneGeometry(5000, 5000, 1, 1);
     let floorMat = new THREE.MeshPhongMaterial({
         color: 0xE0E0E0,
-      shininess: 0
+        shininess: 0
     });
     let floor = new THREE.Mesh(floorGeo, floorMat);
     floor.rotation.x = -0.5 * Math.PI;
@@ -175,6 +161,61 @@ window.addEventListener('load', function() {
     };
 });
 
+    // function goto(where) { 
+    //     gsap.to(window, {
+    //         scrollTo: where,
+    //         duration: 1
+    //     });
+    // }
+
+//   const avatarImg2 = document.querySelector(".about .about-content.bottom .about-column-img img");
+
+//   gsap.timeline({
+//     scrollTrigger: {
+//       trigger: avatarImg,
+//       start: () => "-=" + avatarImg.offsetWidth + " bottom",
+//       end: () => "-=" + avatarImg.offsetWidth + " top",
+//       // scrub: 4,
+//       toggleActions: "play pause resume reverse",
+//       // markers: true,
+//     }
+//   })
+//   .from(".about .about-content.top .about-column-text h2", {x: -2000, opacity: 0, duration: 1})
+//   .from(".about .about-content.top .about-column-text p", {x: -2000, opacity: 0, duration: 1}, 0)
+//   .from(avatarImg, {y: 700, x: 700, duration: 1}, 0)
+//   .from(".about .about-background2", {x: "200vw", duration: 0.5}, 0)
+  
+//   gsap.from(avatarImg2, {
+//     scrollTrigger: {
+//       trigger: avatarImg2,
+//       start: () => "-=" + avatarImg2.offsetWidth + " 80%",
+//       end: () => "-=" + avatarImg2.offsetWidth + " 50%",
+//       scrub: 4,
+//       // markers: true
+//     },
+//     y: 500,
+//     x: -500,
+//     duration: 1
+//   });
+
+//   ScrollTrigger.create({
+//     trigger: ".home",
+//     end: () => window.innerHeight - 200 + " 0",
+//     // markers: true,
+//     onEnterBack: () => goto("0")
+//   });
+
+//   ScrollTrigger.create({
+//     trigger: ".about",
+//     start: "10% bottom",
+//     // end: "80% top",
+//     // markers: true,
+//     onEnter: () => goto(".about")
+//   });
+
+    /* ---- particles.js config ---- */
+    // particlesJS.load('canvas-container', 'particles-config.json');
+
 
 // gsap.set(".cursor", {xPercent: -50, yPercent: -50});
 
@@ -187,25 +228,6 @@ window.addEventListener('load', function() {
 //     yTo(e.pageY);
 //   }
 // });
-
-// function goto(where) { 
-//   gsap.to(window, {
-//     scrollTo: where,
-//     duration: 1
-//   });
-// }
-
-// const menuBtns = document.querySelectorAll(".navbar .menu .menu-btn");
-// console.log(menuBtns);
-// menuBtns.forEach(btn => {
-//   btn.addEventListener('click', () => {
-//     gsap.to(window, {
-//       scrollTo: "#" + btn.innerText.toString().toLowerCase(),
-//       duration: 1
-//     });
-//   })
-// });
-
 
 // const firstElem = document.querySelector(".home");
 // ScrollTrigger.create({

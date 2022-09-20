@@ -12,9 +12,9 @@
     box-sizing: border-box;
     text-decoration: none;
 }
-html {
+/* html {
     scroll-behavior: smooth;
-}
+} */
 body {
     overflow-x:hidden;
 }
@@ -60,6 +60,38 @@ section {
     left: 0;
     width: 100vw;
     height: 120vh;
+    pointer-events: none;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.9);
+    z-index: 2;
+}
+/* The Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.close-btn:hover,
+.close-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /* navbar styling */
@@ -98,12 +130,13 @@ section {
     justify-content: center;
     align-items: flex-start;
 
-    font-family: 'Luckiest Guy', cursive;
+    font-family: 'Luckiest Guy', Arial, Helvetica, sans-serif;
     list-style: none;
     background: #fff;
     clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);
 }
-.navbar .menu li a {
+.navbar .menu li .menu-btn {
+    cursor: pointer;
     width: 214px;
 
     color: #fff;
@@ -114,14 +147,8 @@ section {
     background: #3A3A84;
     clip-path: polygon(15% 0, 100% 0, 85% 100%, 0 100%);
 }
-/* .navbar .menu li a span {
-    margin: auto;
-} */
-.navbar .menu li a:hover {
+.navbar .menu li .menu-btn:hover {
     background: #C14747;
-}
-.navbar .menu li div {
-    width: 60px;
 }
 
 
@@ -170,7 +197,7 @@ section {
     min-height: 50px;
     min-width: 200px;
 
-    font-family: 'Luckiest Guy', cursive;
+    font-family: 'Luckiest Guy', Arial, Helvetica, sans-serif;
     font-size: 22px;
     color: #5050BA;
     line-height: 2;
@@ -204,10 +231,11 @@ section {
 .about {
     position: relative;
     height: 170vh;
+    min-height: 1000px;
+    margin-bottom: 50px;
     padding-top: 170px;
     z-index: 1;
     pointer-events: none;
-    min-height: 1000px;
 }
 .about .resume-btn {
     margin-top: 50px;
@@ -224,7 +252,7 @@ section {
     height: 70px;
     width: 185px;
 
-    font-family: 'Luckiest Guy', cursive;
+    font-family: 'Luckiest Guy', Arial, Helvetica, sans-serif;
     font-size: 24px;
     color: #C14747;
     line-height: 2;
@@ -249,7 +277,7 @@ section {
 }
 .about .about-content.top p span {
     position: absolute;
-    font-family: 'Luckiest Guy', cursive;
+    font-family: 'Luckiest Guy', Arial, Helvetica, sans-serif;
     font-size: 60px;
     color: #C14747;
     transform: translate(10px, -13px);
@@ -325,7 +353,8 @@ section {
 
 /* skills styling */
 .skills {
-    padding: 100px 0px;
+    padding: 50px 0px;
+    margin-bottom: 100px;
     background: #F0F0F0;
 }
 .skills .container {
@@ -356,7 +385,7 @@ section {
     height: 150px;
     margin: 10px;
 
-    font-family: 'Mochiy Pop One', sans-serif;
+    font-family: 'Mochiy Pop One', Arial, Helvetica, sans-serif;
     font-size: 13px;
     color: #fff;
     text-shadow: 0px 4px 4px rgb(0 0 0 / 50%);
@@ -364,6 +393,10 @@ section {
     background-color: transparent;
     filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.5));
     perspective: 1000px;
+}
+.skills .skills-list li a {
+    margin-top: 10px;
+    color: #fff;
 }
 .skills .skills-list svg{
     height: 70px;
@@ -415,7 +448,8 @@ section {
 
 /* projects styling */
 .projects {
-    padding: 100px 0;
+    padding: 50px 0;
+    font-family: Arial, Helvetica, sans-serif;
     background-image: linear-gradient(0deg, transparent 49px, rgb(233, 233, 233) 50px), linear-gradient(90deg, transparent 49px, rgb(233, 233, 233) 50px);
     background-size: 50px 50px;
     background-attachment: fixed;
@@ -429,6 +463,17 @@ section {
     justify-content: center;
     position: relative;
     padding-top: 120px;
+}
+.projects .btn-learn-more {
+    width: 50%;
+    margin-left: 50%;
+    background-color: #5050BA;
+    border-radius: 6px;
+    cursor: pointer;
+    filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.5));
+}
+.projects .btn-learn-more:hover {
+    opacity: 80%;
 }
 .projects .tooltiptext {
     visibility: hidden;
@@ -444,6 +489,13 @@ section {
     position: absolute;
     transform: translate(-50%, -150%);
     z-index: 1;
+}
+.projects li.source-code {
+    margin-left: auto!important;
+}
+.projects  li.source-code .tooltiptext {
+    white-space: nowrap;
+    transform: translate(-100%, -150%);
 }
 .projects  li:hover .tooltiptext {
     visibility: visible;
@@ -486,7 +538,7 @@ section {
 }
 .projects .carousel .card ul li {
     margin-top: 20px;
-    margin-left: 10px;
+    margin: 0px 5px;
     height: 40px;
     width: 40px;
 }
@@ -526,12 +578,12 @@ section {
     .container {
         padding: 0 20vw;
     }
-}  
-@media (max-width: 1024px) {
     .skills .skills-list li {
         width: 100px;
         height: 130px;
     }
+}  
+@media (max-width: 1024px) {
     .container {
         padding: 0 10vw;
     }
@@ -657,7 +709,7 @@ section {
 
     .navbar,
     .navbar .logo a,
-    .navbar .menu li a,
+    .navbar .menu li .menu-btn,
     .about .about-background2 div,
     .flip-card-front,
     .projects .carousel .card {
