@@ -2,7 +2,7 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.m
 import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/loaders/GLTFLoader.js";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-// gsap.to(window, {scrollTo: "Top"});
+// gsap.to(window, {scrollTo: 0});
 
 $(function(){
     $('.carousel').owlCarousel({
@@ -74,7 +74,8 @@ $(function(){
     const camera = new THREE.PerspectiveCamera( 75, sizes.width / sizes.height, 0.1, 1000 );
     camera.lookAt( scene.position );
     camera.position.set(0, 3, 15);
-    camera.position.z = (canvas.offsetWidth < 600)? 20: 15;
+    camera.position.z = (canvas.offsetWidth < 600) ? 20 : 15;
+    camera.position.z = (canvas.offsetHeight > 1700 && canvas.offsetWidth < 1000) ? 25 : camera.position.z;
     
     let model;
     let material = new THREE.MeshStandardMaterial({color: 0xC14747});
@@ -82,7 +83,7 @@ $(function(){
     loader.load( '/src/NA.glb', function ( gltf ) {
         model = gltf.scene;
         model.scale.set(1, 1, 1);
-        model.position.x = (canvas.offsetWidth < 1200)? 0: 5;
+        model.position.x = (canvas.offsetWidth < 1400)? 0: 5;
         model.traverse((o) => {
             if (o.isMesh) {
                 o.material = material;
@@ -138,8 +139,9 @@ $(function(){
 
     window.addEventListener('resize', () =>
     {   
-        camera.position.z = (canvas.offsetWidth < 600)? 20: 15;
-        model.position.x = (canvas.offsetWidth < 1200)? 0: 5;
+        camera.position.z = (canvas.offsetWidth < 600) ? 20 : 15;
+        camera.position.z = (canvas.offsetHeight > 1700 && canvas.offsetWidth < 1000) ? 25 : camera.position.z;
+        model.position.x = (canvas.offsetWidth < 1400)? 0: 5;
         sizes.width = canvas.offsetWidth;
         sizes.height = canvas.offsetHeight;
 

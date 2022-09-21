@@ -170,7 +170,7 @@ section {
 }
 .home .social-container {
     position: absolute;
-    left: calc(100% - 200px);
+    right: 0;
     height: 80%;
     overflow: hidden;
     background: none;
@@ -288,14 +288,9 @@ section {
     flex-direction: column;
     justify-content: center;
 }
-.about .about-content.bottom .about-column-text {
-    position: relative;
-}
 .about .about-content.bottom .about-column-text p {
-    width: 100%;
-    position: absolute;
-    text-align: justify;
-    text-indent: 10rem;
+    font-size: 30px;
+    text-align: center;
 }
 .about .about-content.top .about-column-img {
     display: flex;
@@ -528,19 +523,20 @@ section {
     transform: scale(1.05);
 }
 .projects .carousel .card .text span {
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 500;
     margin: 10px 0 7px 0;
 }
 .projects .carousel .card ul {
     list-style: none;
     display: flex;
+    margin-top: 15px;
 }
 .projects .carousel .card ul li {
     margin-top: 20px;
     margin: 0px 5px;
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
 }
 .projects .carousel .card ul svg {
     height: 100%;
@@ -680,7 +676,7 @@ section {
 
 @media (max-height: 1100px) and (max-width: 1600px) {
     .text-style {
-        font-size: 20px;
+        font-size: 20px!important;
     }
     .about .about-content.top p span {
         font-size: 40px;
@@ -690,6 +686,11 @@ section {
     }
     .about {
         padding-top: 110px;
+    }
+}
+@media (min-height: 1100px) and (min-width: 900px) and (max-width: 2000px) {
+    .about .about-content.bottom .about-column-text p {
+        width: 650px;
     }
 }
 @media (max-height: 480px){
