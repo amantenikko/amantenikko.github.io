@@ -213,6 +213,9 @@ section {
     transform: translate(140px, 0px);
     transition: transform 0.3s ease;
 }
+.home .social-menu li a svg path {
+    fill: #5050BA;
+}
 .home .social-container a:hover,
 .home .social-container a:hover svg path {
     color: #C14747;
