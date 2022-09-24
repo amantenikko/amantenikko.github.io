@@ -463,6 +463,7 @@ section {
     padding-top: 120px;
 }
 .projects .btn-learn-more {
+	display: none;
     width: 50%;
     margin-left: 50%;
     background-color: #5050BA;
