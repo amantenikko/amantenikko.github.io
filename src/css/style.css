@@ -462,16 +462,28 @@ section {
     position: relative;
     padding-top: 120px;
 }
-.projects .btn-learn-more {
-	display: none;
-    width: 50%;
-    margin-left: 50%;
+.projects .details {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.5));
+}
+.projects .details .btn-more-details {
+    flex: 1;
+    background-color: #5050BA;
+    border-radius: 6px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.projects .details .btn-learn-more {
+    flex: 2;
     background-color: #5050BA;
     border-radius: 6px;
     cursor: pointer;
-    filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.5));
 }
-.projects .btn-learn-more:hover {
+.projects .details .btn-more-details:hover,
+.projects .details .btn-learn-more:hover {
     opacity: 80%;
 }
 .projects .tooltiptext {
