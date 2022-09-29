@@ -392,7 +392,7 @@ section {
     backface-visibility: hidden;
 }
 .flip-card-front {
-    background: #FFF;
+    background: #fff;
     color: black;
 }
 .flip-card-back {
@@ -444,6 +444,10 @@ section {
     border-radius: 6px;
     margin-right: 10px;
     cursor: pointer;
+}
+.projects .details .btn-more-details a {
+    width: 100%;
+    color: #fff;
 }
 .projects .details .btn-learn-more {
     flex: 2;
