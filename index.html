@@ -7,16 +7,15 @@
     <link rel="icon" type="image/svg+xml" href="./src/img/logo.svg" />
 
     <script src="./src/scripts/plugins/svg-inject.min.js"></script>
-    <script src="./src/scripts/plugins/particles.min.js"></script>
+    <!-- <script src="./src/scripts/plugins/particles.min.js"></script> -->
+    <script src="./src/scripts/plugins/owl.carousel.min.js" defer></script>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.min.js"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
-    
     <link rel="stylesheet" href="./src/css/style.css">
   </head>
   <body>
@@ -171,11 +170,15 @@
             <div class="carousel owl-carousel">
               <div class="card">
                   <div class="box">
-                    <img src="./src/img/logo.svg" alt="">
+                    <img src="/src/img/projects/project-portfolio.png" alt="">
                     <div class="text">
                       <span>Portfolio Website</span>
                       <p>I build this to be familiar with web technologies.</p>
                       <ul>
+                        <li><img src="./src/img/icons/icon_HTML.svg" onload="SVGInject(this)"><span class="tooltiptext">HTML</span></li>
+                        <li><img src="./src/img/icons/icon_CSS.svg" onload="SVGInject(this)"><span class="tooltiptext">CSS</span></li>
+                        <li><img src="./src/img/icons/icon_JS.svg" onload="SVGInject(this)"><span class="tooltiptext">Javascript</span></li>
+                        <li><img src="./src/img/icons/icon_JQuery.svg" onload="SVGInject(this)"><span class="tooltiptext">JQuery</span></li>
                         <li class="source-code"><a href="https://github.com/amantenikko/amantenikko.github.io" target="_blank"><img src="./src/img/icons/icon_github.svg" onload="SVGInject(this)"><span class="tooltiptext">View Source Code</span></a></li>
                       </ul>
                     </div>
@@ -247,6 +250,12 @@
         <span class="close-btn">&times;</span>
       </div>
       <!-- projects section end -->
+
+      <!-- footer section start -->
+      <!-- <footer>
+        <div>© 2022 Nikko Amante</div>
+      </footer> -->
+      <!-- footer section end -->
     </div>
     <script type="module" src="./src/scripts/main.js"></script>
   </body>

@@ -423,6 +423,7 @@ section {
     background-position: 7px -15px;
 }
 .projects .container {
+    padding: 0 20vw;
     height: 100%;
 }
 .projects .projects-content {
@@ -446,6 +447,7 @@ section {
     cursor: pointer;
 }
 .projects .details .btn-more-details a {
+    display: block;
     width: 100%;
     color: #fff;
 }
@@ -511,6 +513,9 @@ section {
 .projects .carousel .card:hover .box {
     transform: scale(1.05);
 }
+.projects .carousel .card .text {
+    margin-top: auto;
+}
 .projects .carousel .card .text span {
     font-size: 20px;
     font-weight: 500;
@@ -533,9 +538,13 @@ section {
     filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.5));
 }
 .projects .carousel .card img {
+    flex: auto;
     max-height: 200px;;
     object-fit: scale-down;
     transition: all 0.3s ease;
+}
+.projects .carousel .card .details {
+    margin-top: 15px;
 }
 .projects .owl-dots {
     text-align: center;
@@ -636,12 +645,14 @@ section {
     }
 }  
 @media (max-width: 1024px) {
-    .container {
+    .container,
+    .projects .container {
         padding: 0 10vw;
     }
 }
 @media (max-width: 900px) {
-    .container {
+    .container,
+    .projects .container {
         padding: 0 5vw;
     }
     .text-style {

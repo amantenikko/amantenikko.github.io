@@ -2,7 +2,6 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.121.1/build/three.m
 import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/loaders/GLTFLoader.js";
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-// gsap.to(window, {scrollTo: 0});
 
 $(function(){
     $('.carousel').owlCarousel({
@@ -39,18 +38,16 @@ $(function(){
                         ];
     const prjctImgs4 = ["./src/img/projects/project-sliding-puzzle.png"];
     
-    const viewBtns = document.querySelectorAll(".btn-learn-more");
-    viewBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            $("body").attr("style", "overflow-y: hidden;");
+    $('.carousel').on('click', '.btn-learn-more', function () {
+        $("body").attr("style", "overflow-y: hidden;");
             $(".modal").attr("style", "display: block;");
             $('.owl-carousel').data('owl.carousel').options.autoplay = false;
             $('.owl-carousel').trigger( 'refresh.owl.carousel' );
 
-            let prjctImgs = (btn.classList.contains("project1")) ? prjctImgs1 : 
-                            (btn.classList.contains("project2")) ? prjctImgs2 : 
-                            (btn.classList.contains("project3")) ? prjctImgs3 : 
-                            (btn.classList.contains("project4")) ? prjctImgs4 : [];
+            let prjctImgs = (this.classList.contains("project1")) ? prjctImgs1 : 
+                            (this.classList.contains("project2")) ? prjctImgs2 : 
+                            (this.classList.contains("project3")) ? prjctImgs3 : 
+                            (this.classList.contains("project4")) ? prjctImgs4 : [];
             prjctImgs.forEach(img => {
                 $( ".carousel2" ).append(
                     `<div class="card">
@@ -69,14 +66,15 @@ $(function(){
                 nav: false,
                 items: 1,
             });
-        })
+            $('.carousel2').data('owl.carousel').options.loop = (prjctImgs.length > 1);
+            $('.carousel2').trigger('refresh.owl.carousel');
     });
 
     $(".close-btn").on('click', function () {
         $("body").attr("style", "overflow-y: unset;");
         $(this).parent().attr("style", "display: none;");
         $('.owl-carousel').data('owl.carousel').options.autoplay = true;
-        $('.owl-carousel').trigger( 'refresh.owl.carousel' );
+        $('.owl-carousel').trigger('refresh.owl.carousel');
         $('.carousel2').owlCarousel('destroy');
         $('.carousel2 div').remove();
     });
