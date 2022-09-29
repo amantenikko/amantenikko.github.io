@@ -24,20 +24,20 @@ $(function(){
             }
         }
     });
-    const prjctImgs1 = [];
-    const prjctImgs2 = [
-        "./src/img/projects/project-aspg.png",
-        "./src/img/projects/project-aspg1.png",
-        "./src/img/projects/project-aspg2.png"
-    ];
-    const prjctImgs3 = [
-        "./src/img/projects/project-elixer.png",
-        "./src/img/projects/project-elixer1.png",
-        "./src/img/projects/project-elixer2.png"
-    ];
-    const prjctImgs4 = [
-        "./src/img/projects/project-sliding-puzzle.png"
-    ];
+    const prjctImgs1 = ["./src/img/projects/project-portfolio.png",
+                        "./src/img/projects/project-portfolio1.png",
+                        "./src/img/projects/project-portfolio2.png",
+                        "./src/img/projects/project-portfolio3.png"
+                        ];
+    const prjctImgs2 = ["./src/img/projects/project-aspg.png",
+                        "./src/img/projects/project-aspg1.png",
+                        "./src/img/projects/project-aspg2.png"
+                        ];
+    const prjctImgs3 = ["./src/img/projects/project-elixer.png",
+                        "./src/img/projects/project-elixer1.png",
+                        "./src/img/projects/project-elixer2.png"
+                        ];
+    const prjctImgs4 = ["./src/img/projects/project-sliding-puzzle.png"];
     
     const viewBtns = document.querySelectorAll(".btn-learn-more");
     viewBtns.forEach(btn => {
