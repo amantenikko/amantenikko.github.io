@@ -24,17 +24,61 @@ $(function(){
             }
         }
     });
+    const prjctImgs1 = [];
+    const prjctImgs2 = [
+        "./src/img/projects/project-aspg.png",
+        "./src/img/projects/project-aspg1.png",
+        "./src/img/projects/project-aspg2.png"
+    ];
+    const prjctImgs3 = [
+        "./src/img/projects/project-elixer.png",
+        "./src/img/projects/project-elixer1.png",
+        "./src/img/projects/project-elixer2.png"
+    ];
+    const prjctImgs4 = [
+        "./src/img/projects/project-sliding-puzzle.png"
+    ];
+    
+    const viewBtns = document.querySelectorAll(".btn-learn-more");
+    viewBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            $("body").attr("style", "overflow-y: hidden;");
+            $(".modal").attr("style", "display: block;");
+            $('.owl-carousel').data('owl.carousel').options.autoplay = false;
+            $('.owl-carousel').trigger( 'refresh.owl.carousel' );
 
-    $(".btn-learn-more").on('click', function () {
-        $(".modal").attr("style", "display: block;");
-        $('.owl-carousel').data('owl.carousel').options.autoplay = false;
-        $('.owl-carousel').trigger( 'refresh.owl.carousel' );
+            let prjctImgs = (btn.classList.contains("project1")) ? prjctImgs1 : 
+                            (btn.classList.contains("project2")) ? prjctImgs2 : 
+                            (btn.classList.contains("project3")) ? prjctImgs3 : 
+                            (btn.classList.contains("project4")) ? prjctImgs4 : [];
+            prjctImgs.forEach(img => {
+                $( ".carousel2" ).append(
+                    `<div class="card">
+                        <div class="box">
+                            <img src="`+ img +`" alt="">
+                        </div>
+                    </div>`
+                );
+            });
+            $('.carousel2').owlCarousel({
+                margin: 30,
+                loop: true,
+                autoplay: false,
+                autoplayTimeOut: 1000,
+                autoplayHoverPause: true,
+                nav: false,
+                items: 1,
+            });
+        })
     });
 
     $(".close-btn").on('click', function () {
+        $("body").attr("style", "overflow-y: unset;");
         $(this).parent().attr("style", "display: none;");
         $('.owl-carousel').data('owl.carousel').options.autoplay = true;
         $('.owl-carousel').trigger( 'refresh.owl.carousel' );
+        $('.carousel2').owlCarousel('destroy');
+        $('.carousel2 div').remove();
     });
     
     const menuBtns = document.querySelectorAll(".navbar .menu .menu-btn");

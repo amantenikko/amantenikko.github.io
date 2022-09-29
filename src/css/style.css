@@ -62,37 +62,6 @@ section {
     height: 120vh;
     pointer-events: none;
 }
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.9);
-    z-index: 2;
-}
-/* The Close Button */
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-.close-btn:hover,
-.close-btn:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 /* navbar styling */
 .navbar {
@@ -573,7 +542,7 @@ section {
     width: 10px;
     margin: 0 5px;
     outline: none!important;
-    border: 2px solid #5050BA!important;
+    border: 2px solid #5050BA;
     transition: all 0.3s ease;
 }
 .projects .owl-dot.active {
@@ -581,9 +550,76 @@ section {
 }
 .projects .owl-dot:hover,
 .projects .owl-dot.active {
-    background: #5050BA!important;
+    background: #5050BA;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.9);
+    z-index: 2;
+}
+.modal .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    z-index: 3;
+}
+.modal .close-btn:hover,
+.modal .close-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal .carousel2 {
+    display: grid;
+    align-items: end;
+    height: 100%;
+    filter: drop-shadow(0px 5px 4px rgba(0, 0, 0, 0.5));
+}
+.modal .carousel2 .card {
+    transition: all 0.3s ease;
+}
+.modal .carousel2 .card .box {
+    padding: 10px;
+}
+.modal .carousel2 .card img {
+    max-height: 90vh;
+    object-fit: scale-down;
+    transition: all 0.3s ease;
+}
+.modal .owl-dots {
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: 10px;
+}
+.modal .owl-dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    margin: 0 5px;
+    outline: none!important;
+    border: 2px solid #5050BA;
+    transition: all 0.3s ease;
+}
+.modal .owl-dot.active {
+    width: 20px;
+}
+.modal .owl-dot:hover,
+.modal .owl-dot.active {
+    background: #5050BA;
+}
 
 /* responsive media query start */
 @media (max-width: 1500px) {
@@ -762,11 +798,11 @@ section {
     .projects .tooltiptext {
         background-color: #252525;
     }
-    .projects .owl-dot {
+    .owl-dot {
         border: 2px solid white!important;
     }
-    .projects .owl-dot:hover,
-    .projects .owl-dot.active {
+    .owl-dot:hover,
+    .owl-dot.active {
         background: white!important;
     }
 }
