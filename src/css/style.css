@@ -541,8 +541,8 @@ section {
     height: 10px;
     width: 10px;
     margin: 0 5px;
-    outline: none!important;
-    border: 2px solid #5050BA;
+    outline: none;
+    border: 2px solid #5050BA!important;
     transition: all 0.3s ease;
 }
 .projects .owl-dot.active {
@@ -550,7 +550,7 @@ section {
 }
 .projects .owl-dot:hover,
 .projects .owl-dot.active {
-    background: #5050BA;
+    background: #5050BA!important;
 }
 
 .modal {
@@ -610,7 +610,7 @@ section {
     border-radius: 5px;
     margin: 0 5px;
     outline: none!important;
-    border: 2px solid #5050BA;
+    border: 2px solid #5050BA!important;
     transition: all 0.3s ease;
 }
 .modal .owl-dot.active {
@@ -618,7 +618,7 @@ section {
 }
 .modal .owl-dot:hover,
 .modal .owl-dot.active {
-    background: #5050BA;
+    background: #5050BA!important;
 }
 
 /* responsive media query start */
@@ -759,7 +759,7 @@ section {
     .projects h2 {
         color: #fff;
     }
-
+    
     .navbar,
     .navbar .logo a,
     .navbar .menu li .menu-btn,
@@ -798,11 +798,14 @@ section {
     .projects .tooltiptext {
         background-color: #252525;
     }
-    .owl-dot {
+    .projects .owl-dot,
+    .modal .owl-dot {
         border: 2px solid white!important;
     }
-    .owl-dot:hover,
-    .owl-dot.active {
+    .projects .owl-dot:hover,
+    .projects .owl-dot.active,
+    .modal .owl-dot:hover,
+    .modal .owl-dot.active {
         background: white!important;
     }
 }
@@ -811,12 +814,12 @@ section {
 /* animation settings styling */
 @keyframes float {
 	0% {
-		transform: translatey(0px);
+        transform: translatey(0px);
 	}
 	50% {
-		transform: translatey(-20px);
+        transform: translatey(-20px);
 	}
 	100% {
-		transform: translatey(0px);
+        transform: translatey(0px);
 	}
 }
